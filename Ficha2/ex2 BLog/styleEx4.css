@@ -1,0 +1,106 @@
+
+
+
+
+
+
+
+body{
+  background-color: black;
+  background-image: url("./ws_Blue_Zone_1920x1200.jpg");
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  width: 1200px;
+  display: block;
+  color: white;
+  font-family: "Gill Sans";
+
+}
+
+.btn{
+padding:1em;
+text-align: center;
+display:inline-block;
+text-decoration: none;
+margin:0 auto;
+color: white;
+background: black;
+padding: 5px 30px;
+text-decoration: none; 
+transition: #00c3fb 1s;
+}
+
+
+.btn:hover{
+  background: #00c3fb;
+}
+
+.cabecalho{
+	color: white;
+	text-shadow: black;
+	font-size: 150px;
+	text-align: center; 
+	font-family: Impact ;
+	background-image: url("./blog.jpg");
+	background-position: center;
+	height: 200px;
+	background-repeat: no-repeat; 
+	background-size: cover;
+	background-color: black;
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+.container{
+  width: 100%;
+  text-align: center;
+}
+
+#tableP{
+	position: absolute;
+	width: 1200px;
+	height: auto;
+	display: block;
+	float: left;
+	padding-top: 75px;
+	top: 250px;
+}
+
+
+.postTitle{
+	padding-left: 100px;
+	width: auto;
+	padding-right: 100px;
+	font-size: 50px;
+	font-family: "Arial Black";
+}
+
+.tags{
+	padding-left: 38px;
+	font-family: RockWell;
+	padding-bottom: 300px;
+}
+
+.tagname{
+	font-size: 20px;
+	font-family: "Arial Rounded MT Bold"; 
+}
+
+.post{
+	padding-left: 100px;
+	display: block;
+	padding-right: 100px;
+	text-align: left;
+	width: auto;
+}
+
+
+
+#foot{
+	text-align: center;
+    position: absolute;
+    top: 900px;
+}
+
+
+
