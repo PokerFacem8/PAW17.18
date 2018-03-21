@@ -64,6 +64,11 @@ a:hover{
 	color: white;
 }
 
+.active{
+	background-color:white;;
+	color: #00c3fb;
+}
+
 
 .main{
 	display: grid;
