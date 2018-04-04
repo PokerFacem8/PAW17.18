@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <title>Formulario</title>
+    <link rel="stylesheet" type="text/css" href="./Styles.css">
+    <meta charset="UTF-8">    
+    <meta name="author" content="Pedro Pinheiro">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+
+<body>
+<div class="ct">
+ <form action="/action_page.php" method="GET" target="_blank">
+
+        <fieldset>
+            <legend><h1>Morada preferencial:</h1></legend>
+
+
+            <div class="grid">
+
+                <div class="morada">
+                    <input type="radio" name="morada" value="casa">Casa</input>
+                    <input type="radio" name="morada" value="profissional">Profissional</input>
+                </div>
+
+                <div class="titulo">
+                    <label for="titulo">Título*</label>
+                    <select  name="titulo">
+                        <option value="titulo">Título</option>
+                    </select>
+                </div>
+
+                <div class="firstname">
+                    <p>First Name:*</p>
+                    <input type="text" name="firstname" required><br>
+                </div>
+
+                <div class="lastname">
+                    <p>Last Name:*</p>
+                    <input type="text" name="lastname" required>
+                </div>
+
+                <div class="email">
+                    <p>Email:*</p>
+                    <input  type="email" name="email" id="femail" required>
+                </div>
+
+                <div class="confirmemail">
+                    <p>Confirmar e-mail:*</p>
+                    <input type="email" name="email-conf" id="cemail" required>
+                </div>
+
+                <div class="codigopostal">
+                    <p>Código Postal:*</p>
+                    <input type="text" pattern="[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9]" name="codigopostal" required>
+                </div>
+
+                <div class="cidade">
+                    <p>Cidade:*</p>
+                    <input type="text" name="cidade" required>
+                </div>
+
+                <div class="pais">
+                    <p>País:*</p>
+                    <select name="pais" required>
+                        <option value="pais">Portugal</option>
+                        <option value="pais">Espanha</option>
+                        <option value="pais">França</option>
+                        <option value="pais">Inglaterra</option>
+                    </select>
+                </div>
+
+                <div class="numerotlf">
+                    <p>Nº de Telefone:</p>
+                    <input type="tel" name="telefone">
+                </div>
+
+                <div class="tm">
+                    <p>TM:</p>
+                    <input type="text" name="TM">
+                </div>
+            </div>
+
+        </fieldset>
+
+
+
+
+
+         <fieldset>
+
+             <legend><h1>Detalhes do Condutor</h1></legend>
+             <div class="grid">
+
+
+
+                    <div class="dob">
+                        <p>Data de Nascimento:*</p>
+                        <input  type="date" name="dob" required>
+                    </div>
+
+
+
+                    <div class="newpass">
+                        <p>Nova Password:*:</p>
+                        <input  type="password" name="password" title="A password deverá conter no mínimo 6 caracteres numéricos e não numéricos" id="psw" required>
+                        <p id="msgA"></p>
+                    </div>
+
+                    <div class="confpass">
+                        <p>Confirmar nova Password:*:</p>
+                        <input  type="password" name="conf-password" id="cpsw" required>
+                    </div>
+
+                    <div class="ncarta:*">
+                        <p>Nº da Carta de Condução:*</p>
+                        <input type="text" name="ncarta" required>
+                    </div>
+
+            </div>
+
+            <input type="checkbox" id="termos">Aceito os<a href="" target="_self">Termos e Condições Gerais</a>.</input>
+
+         </fieldset>
+
+         <button type="submit" value="Submit" id="submitbtn" disabled="disable">CRIAR O MEU PERFIL</button>  
+    </form>
+    
+    <script src="./Scripts.js"></script>
+</div>
+   
+</body>
+</html>

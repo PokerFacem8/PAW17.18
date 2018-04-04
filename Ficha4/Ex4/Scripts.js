@@ -1,5 +1,4 @@
 'use strict';
-
 //Check if emails are Compatible
 function checkEmail() {
     let email = document.getElementById('femail');
