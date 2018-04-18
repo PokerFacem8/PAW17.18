@@ -10,10 +10,19 @@ http.createServer(function (request, response) {
         filePath += 'index.html';
     }
 
-    if (filePath.includes('./action_page.php')) {
-        let url = require('url');
-        var q = url.parse(filePath, true);
-        var qdata = q.query;
+    const { headers, method, url } = request;
+
+    let body = [];
+    request.on('error', (err) => {
+        console.error(err);
+    }).on('data', (chunk) => {
+        body.push(chunk);
+    }).on('end', () => {
+        body = Buffer.concat(body).toString();
+        // At this point, we have the headers, method, url and body, and can now
+        // do whatever we need to in order to respond to this request.
+
+        var data = qs.parse(body);
 
         let person = {
             name: qdata.firstname,
@@ -38,7 +47,7 @@ http.createServer(function (request, response) {
             console.log('Done');
         });
 
-    }
+    });
 
 
 
