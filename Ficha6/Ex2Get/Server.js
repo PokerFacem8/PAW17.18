@@ -10,7 +10,7 @@ http.createServer(function (request, response) {
         filePath += 'index.html';
     }
 
-    if (filePath.includes('./action_page.php')) {
+    if (filePath.includes('./action_page')) {
         let url = require('url');
         var q = url.parse(filePath, true);
         var qdata = q.query;
