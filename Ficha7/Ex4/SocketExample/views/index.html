@@ -3,10 +3,12 @@
   <head>
     <meta charset="utf-8">
     <script src="/socket.io/socket.io.js"></script>
+    <script src="./Script.js"></script>
     <title>Example</title>
   </head>
 
-  <body>
+  <body onload="timedRefresh();">
+    <h1 id="demo"></h1>
     <script>
         var socket = io.connect('http://localhost:8000');
         socket.emit('hello-message', {myData: 'hello from client'}); 
