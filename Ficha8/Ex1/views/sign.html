@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="./cssFiles/sign.css" />
+</head>
+<body>
+    <h1>Sign In</h1>
+    <form action="/Registo" method="POST">
+        <div class="in">
+            <h3>First Name:<input type="text" name="firstname"></h3>
+            <h3>Last Name:<input type="text" name="lastname"></h3>
+            <h3>Email:<input id="femail" type="email" name="email"></h3>
+            <h3>Confirm Email:<input id="cemail" type="email" name="confemail"></h3>
+            <h3>PassWord:<input id="psw" type="password" name="psw"></h3>
+            <h3>Confirm PassWord:<input id="cpsw" type="password" name="confpsw"></h3>
+            <input type="checkbox" id="termos">I agree the<a href="" target="_self">Terms and Conditions</a></input>
+            <button class="button1" type="submit" value="Submit" id="submitbtn" disabled="disable" onclick='return isValidForm()';>Sign In</button>
+        </div>
+        <script src="./scripts/sscript.js"></script>
+    </form>
+    
+</body>
+</html>

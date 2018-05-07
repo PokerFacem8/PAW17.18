@@ -1,0 +1,22 @@
+body{
+    background-image: url("https://fthmb.tqn.com/OO7CD06NAdoIwv71DgUgBiTd4ps=/768x0/filters:no_upscale():max_bytes(150000):strip_icc()/shutterstock_325494917-5a68d8403418c600190a3e1f.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+h1{
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+a{
+    font-family: 'Courier New', Courier, monospace;
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: red;
+    text-decoration: none;
+}
