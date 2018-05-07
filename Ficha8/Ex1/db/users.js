@@ -13,11 +13,11 @@ usersSchema.methods.generateHash = function(password){
     return bcrypt.hashSync(password, bcrypt.genSaltSync(9));
 }
 
-usersSchema.methods.validPassword = function(password){
-    return bcrypt.compareSync(password,this.local.password);
+usersSchema.methods.validPassword = function(password,localpassword){
+    return bcrypt.compareSync(password,localpassword);
 }
 
-
-
-
 module.exports = mongoose.model('users',usersSchema);
+
+
+
