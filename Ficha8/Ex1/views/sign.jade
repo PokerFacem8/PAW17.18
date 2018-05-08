@@ -7,29 +7,37 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1')
     link(rel='stylesheet', type='text/css', media='screen', href='./cssFiles/sign.css')
   body
-    h1 Sign In
-    form(action='/Registo', method='POST')
-      .in
-        h3
-          | First Name:
-          input(type='text', name='firstname')
-        h3
-          | Last Name:
-          input(type='text', name='lastname')
-        h3
-          | Email:
-          input#femail(type='email', name='email')
-        h3
-          | Confirm Email:
-          input#cemail(type='email', name='confemail')
-        h3
-          | PassWord:
-          input#psw(type='password', name='psw')
-        h3
-          | Confirm PassWord:
-          input#cpsw(type='password', name='confpsw')
-        input#termos(type='checkbox')
-        | I agree the
-        a(href='', target='_self') Terms and Conditions
-        button#submitbtn.button1(type='submit', value='Submit', disabled='disable', onclick='return isValidForm()', ;='') Sign In
-      script(src='./scripts/sscript.js')
+    h1 #{title}
+    if success
+        .in 
+          h3 Successful Validation!
+    else
+      if errors
+          .in 
+            ul  
+              for error in errors
+                li= error.msg
+      form(action='/Registo', method='POST')
+        .in
+          h3
+            | First Name:
+            input(type='text', name='firstname')
+          h3
+            | Last Name:
+            input(type='text', name='lastname')
+          h3
+            | Email:
+            input#femail(type='email', name='email')
+          h3
+            | Confirm Email:
+            input#cemail(type='email', name='confemail')
+          h3
+            | PassWord:
+            input#psw(type='password', name='psw')
+          h3
+            | Confirm PassWord:
+            input#cpsw(type='password', name='confpsw')
+          input#termos(type='checkbox')
+          | I agree the
+          a(href='', target='_self') Terms and Conditions
+          button#submitbtn.button1(type='submit', value='Submit', onclick='return isValidForm()', ;='') Sign In

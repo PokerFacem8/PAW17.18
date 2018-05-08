@@ -74,3 +74,11 @@ button.button1:hover{
         margin: 0.4em auto;
     }
 }
+
+.errors{
+    color: red;
+} 
+
+.success{
+    color: green;
+}
