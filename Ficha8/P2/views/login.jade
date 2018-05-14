@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    title Ex1Ficha8
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', type='text/css', media='screen', href='./cssFiles/login.css')
+    script(src='./scripts/lscripts.js')
+  body
+    h1 Log In
+    form(action='/Login', method='POST')
+      .in
+        h3
+          | Email:
+          input#femail(type='email', name='email')
+        h3
+          | PassWord:
+          input#psw(type='password', name='psw')
+        button#submitbtn.button1(type='submit', value='Submit', ;='') Log In
+      script(src='./scripts/lscripts.js')
