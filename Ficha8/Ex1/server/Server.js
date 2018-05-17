@@ -15,7 +15,7 @@ const MongoStore = require('connect-mongo')(session);
 
 
 //Routes
-const routes = require(fpath + "/db/index");
+const routes = require(fpath + "/db/index.js");
 
 //set the default views folder
 app.set('view engine', 'jade');
@@ -30,7 +30,7 @@ app.use(session({
         collection: 'sessions'
     }),    
     resave: true,
-    saveUninitialized: true,
+    saveUninitialized: false,
 }));
 
 //register the bodyParser middleware for processing forms

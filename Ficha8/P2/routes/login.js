@@ -25,9 +25,9 @@ db.connect((err) => {
 
 //HomePage/Profile
 router.get('/', (req, res) => {//Verificar se o user esta logged se estiver muda para o profile
-    if (req.session.user) {
+    if (req.session.email) {
         res.render('userpage.jade', {
-            username: req.session.user.name
+            username: req.session.name
         });
     } else {
         res.render('index.jade');
@@ -38,7 +38,7 @@ router.get('/', (req, res) => {//Verificar se o user esta logged se estiver muda
 
 //Sign IN if user is logged user will be redirect to Profile Page
 router.get('/sign', (req, res) => {
-    if (req.session.user) {//Verify if session is open
+    if (req.session.email) {//Verify if session is open
         res.redirect('/');
     } else {
         res.render('sign.jade', { title: 'Sign In', success: req.session.success, errors: req.session.errors });
@@ -62,18 +62,16 @@ router.post('/Registo', (req, res) => { //Post Request for sign In
         db.query("SELECT * FROM `users` WHERE email = '" + newuser.email + "' ", (err, result) => {
             if (err) throw err;
 
-            if (result.name) {
+            if (result.firstname) {
                 console.log('Email already exists in DB');
             } else {
                 let sql = "INSERT INTO users (firstname, lastname, email, password) VALUES ('" + newuser.name + "', '" + newuser.last + "', '" + newuser.email + "', '" + newuser.password + "')";
                 let query = db.query(sql, (err, user) => {
                     if (err) throw err;
                     console.log("User Added!");
-                    req.session.user = newuser;
-
+                    req.session.email = user.email;
+                    req.session.name = user.firstname;
                     req.session.save();
-                    console.log(user);
-                    console.log(req.session.user);
                 });
             }
         })
@@ -86,7 +84,7 @@ router.post('/Registo', (req, res) => { //Post Request for sign In
 
 //Log In if user is logged user will be redirect to Profile Page
 router.get('/log', (req, res) => {
-    if (req.session.user) {//Verify if session is open
+    if (req.session.email) {//Verify if session is open
         res.redirect('/');
     } else {
         res.render('login.jade');
@@ -98,21 +96,21 @@ router.post('/Login', (req, res) => { //Post Request for log in
     let lemail = req.body.email;
     let lpsw = req.body.psw;
 
-    let query = db.query("SELECT * FROM `users` WHERE email = '" + lemail + "' ", (err, user) => {
+    let query = db.query("SELECT * FROM users WHERE email = '" + lemail + "' ", (err, result) => {
         if (err) throw err;
 
-        if (!user.name) {
+        if (result.length < 1) {
             return console.log('User Not Found!');
         }
 
-        if (User.validPassword(lpsw, user.password)) {//compare two psw hashed
+        if (!User.validPassword(lpsw, result[0].password)) {//compare two psw hashed
             return console.log('Invalid PassWord!');
-
         }
-        req.session.user = user[0];
-        req.session.save();
+        req.session.email = result[0].email;
+        req.session.name = result[0].firstname;
+        res.redirect('/');
     });
-    res.redirect('/');
+
 });
 
 

@@ -9,7 +9,7 @@ const session = require('express-session');
 const MySQLStore = require('express-mysql-session')(session);
 
 //Routes
-const login = require(fpath + "/routes/login");
+const login = require(fpath + "/routes/login.js");
 
 
 
@@ -17,19 +17,25 @@ const login = require(fpath + "/routes/login");
 app.set('view engine', 'jade');
 app.use(express.static('views'));
 
-//Session
-app.use(session({
-    secret: '234v5678b4vv567c8',
-    resave: false,
-    saveUninitialized: true,
-    store: new MySQLStore({
+let store = new MySQLStore( {
         host: 'localhost',
         port: 3306,
         user: 'root',
         password: '',
         database: 'ficha8p2'
-    })
+
+});
+
+
+
+//Session
+app.use(session({
+    secret: '234v5678b4vv567c8',
+    resave: false,
+    saveUninitialized: false,
+    store: store
 }));
+
 
 
 
